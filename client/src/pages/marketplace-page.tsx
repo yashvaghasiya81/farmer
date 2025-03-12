@@ -15,13 +15,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useQuery } from "@tanstack/react-query";
+import { Product } from "@shared/schema";
 
 export default function MarketplacePage() {
   const [priceRange, setPriceRange] = useState([0, 100]);
-  
-  const { data: products, isLoading } = useQuery({
+
+  const { data: products, isLoading } = useQuery<Product[]>({
     queryKey: ["/api/products"],
   });
+
+  const displayProducts = products || [];
 
   return (
     <MainLayout>
@@ -93,7 +96,7 @@ export default function MarketplacePage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products?.map((product) => (
+              {displayProducts.map((product) => (
                 <Link key={product.id} href={`/product/${product.id}`}>
                   <Card className="cursor-pointer hover:shadow-lg transition-shadow">
                     <CardContent className="p-4">
