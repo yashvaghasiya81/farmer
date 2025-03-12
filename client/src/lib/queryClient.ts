@@ -38,7 +38,20 @@ export const getQueryFn: <T>(options: {
     }
 
     await throwIfResNotOk(res);
-    return await res.json();
+    
+    try {
+      const contentType = res.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        return await res.json();
+      } else {
+        const text = await res.text();
+        console.error("Received non-JSON response:", text.substring(0, 100) + "...");
+        throw new Error("Expected JSON response but received another content type");
+      }
+    } catch (error) {
+      console.error("Error parsing response:", error);
+      throw new Error("Failed to parse server response as JSON");
+    }
   };
 
 export const queryClient = new QueryClient({
