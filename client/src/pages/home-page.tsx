@@ -17,9 +17,7 @@ export default function HomePage() {
               Support local farmers and get the freshest produce delivered to your doorstep
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <Button asChild size="lg">
-                <Link href="/marketplace">Start Shopping</Link>
-              </Button>
+
             </div>
           </div>
         </div>
