@@ -13,9 +13,7 @@ export default function HomePage() {
              
               <span className="block text-primary">from Farmers</span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              Support local farmers and get the freshest produce delivered to your doorstep
-            </p>
+          
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <Button asChild size="lg">
                 <Link href="/marketplace">Start Shopping</Link>
