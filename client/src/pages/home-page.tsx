@@ -18,7 +18,6 @@ export default function HomePage() {
             </p>
             <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
               <Button asChild size="lg">
-                <Link href="/marketplace">Start Shopping</Link>
               </Button>
             </div>
           </div>
